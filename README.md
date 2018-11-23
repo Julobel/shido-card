@@ -1,4 +1,4 @@
-#**Prérequis**:
+# **Prérequis**:
 
 - PHP version >= 7.0.0
 - Composer version >= 1.5.0
@@ -7,9 +7,9 @@ Installation de dépendances:
 
 `composer install`
 
-#**Configuration**
+# **Configuration**
 
-##BBD
+## BBD
 
 Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** si nécessaire.
 
@@ -22,13 +22,13 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 `bin/console doctrine:schema:create`
 
-##Serveur
+## Serveur
 
 **Lancement du serveur de dev:**
 
 `bin/console server:run`
 
-#API
+# API
 
 **Accéder à la doc swagger de l'API:**
 
@@ -38,7 +38,7 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 `bin/console doctrine:schema:update --force`
 
-#Documentations utiles
+# Documentations utiles
 
 [Api Platform](https://api-platform.com/) 
 
