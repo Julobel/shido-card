@@ -13,4 +13,4 @@ db-init:
 
 # MAJ du schéma
 db-update:
-    bin/console doctrine:schema:update --force
+    php bin/console doctrine:schema:update --force
