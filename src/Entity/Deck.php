@@ -13,7 +13,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 
 /**
- * Class Card
+ * Class Deckb
  * @package App\Entity
  * @ORM\Entity
  * @ApiResource
