@@ -2,8 +2,8 @@
 /**
  * Created by IntelliJ IDEA.
  * User: Ken
- * Date: 23/11/2018
- * Time: 15:58
+ * Date: 27/11/2018
+ * Time: 18:11
  */
 
 namespace App\Entity;
@@ -19,31 +19,8 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ApiResource
  */
 
-class Deck
+class Scenario
 {
-    /**
-     * @var int The id of the Deck.
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @var string The label of the card
-     *
-     * @ORM\Column(type="string")
-     */
-    private $label;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string")
-     */
-    private $imageContent;
-
     /**
      * @return int
      */
@@ -77,20 +54,41 @@ class Deck
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getImageContent(): string
+    public function getIdDeck(): int
     {
-        return $this->imageContent;
+        return $this->id_deck;
     }
 
     /**
-     * @param string $imageContent
+     * @param int $id_deck
      */
-    public function setImageContent(string $imageContent): void
+    public function setIdDeck(int $id_deck): void
     {
-        $this->imageContent = $imageContent;
+        $this->id_deck = $id_deck;
     }
+    /**
+     * @var int The id of the Deck.
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @var string The label of the card
+     *
+     * @ORM\Column(type="string")
+     */
+    private $label;
 
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $id_deck;
 }
