@@ -22,6 +22,12 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 `php bin/console doctrine:schema:create`
 
+## Fixtures
+
+Chargement des fixtures
+
+`php bin/console doctrine:fixtures:load`
+
 ## Serveur
 
 **Lancement du serveur de dev:**
@@ -37,6 +43,12 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 **Après la création et/ou modification d'une entité, mettre à jour le schéma:**
 
 `php bin/console doctrine:schema:update --force`
+
+# Front End
+
+**Pour recompiler les assets et lancer la surveillance des modifications**
+
+`yarn run encore dev --watch`
 
 # Documentations utiles
 
