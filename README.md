@@ -3,7 +3,7 @@
 - PHP version >= 7.0.0
 - Composer version >= 1.5.0
 
-Installation de dépendances:
+Installation des dépendances:
 
 `composer install`
 
@@ -15,18 +15,18 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 **Création de la BDD:** 
 
-`bin/console doctrine:database:create`
+`php bin/console doctrine:database:create`
 
 
 **Création du schéma:** 
 
-`bin/console doctrine:schema:create`
+`php bin/console doctrine:schema:create`
 
 ## Serveur
 
 **Lancement du serveur de dev:**
 
-`bin/console server:run`
+`php bin/console server:run`
 
 # API
 
@@ -36,7 +36,7 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 **Après la création et/ou modification d'une entité, mettre à jour le schéma:**
 
-`bin/console doctrine:schema:update --force`
+`php bin/console doctrine:schema:update --force`
 
 # Documentations utiles
 
