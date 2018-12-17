@@ -1,15 +1,12 @@
 # Makefile
 
-# MAJ du cache
 clear-cache:
 	rm -rf var/cache/*
 
-# Réinitialisation de la BDD
 db-init:
 	php bin/console doctrine:database:drop --force
 	php bin/console doctrine:database:create
 	rm -rf var/cache/*
 
-# MAJ du schéma
 db-update:
     php bin/console doctrine:schema:update --force
