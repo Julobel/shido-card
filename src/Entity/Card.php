@@ -47,6 +47,20 @@ class Card
     private $imageContent;
 
     /**
+     * @var string The text of the first choice
+     *
+     * @ORM\Column(type="text")
+     */
+    private $firstChoiceText;
+
+    /**
+     * @var string The text of the first choice
+     *
+     * @ORM\Column(type="text")
+     */
+    private $secondChoiceText;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -108,5 +122,37 @@ class Card
     public function setImageContent(string $imageContent): void
     {
         $this->imageContent = $imageContent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstChoiceText(): string
+    {
+        return $this->firstChoiceText;
+    }
+
+    /**
+     * @param string $firstChoiceText
+     */
+    public function setFirstChoiceText(string $firstChoiceText): void
+    {
+        $this->firstChoiceText = $firstChoiceText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSecondChoiceText(): string
+    {
+        return $this->secondChoiceText;
+    }
+
+    /**
+     * @param string $secondChoiceText
+     */
+    public function setSecondChoiceText(string $secondChoiceText): void
+    {
+        $this->secondChoiceText = $secondChoiceText;
     }
 }
