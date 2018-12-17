@@ -18,7 +18,6 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * @ORM\Entity
  * @ApiResource
  */
-
 class Deck
 {
     /**

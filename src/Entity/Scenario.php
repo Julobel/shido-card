@@ -11,14 +11,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
-
 /**
  * Class Deck
  * @package App\Entity
  * @ORM\Entity
  * @ApiResource
  */
-
 class Scenario
 {
     /**
