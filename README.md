@@ -44,12 +44,6 @@ Chargement des fixtures
 
 `php bin/console doctrine:schema:update --force`
 
-# Front End
-
-**Pour recompiler les assets et lancer la surveillance des modifications**
-
-`yarn run encore dev --watch`
-
 # Documentations utiles
 
 [Api Platform](https://api-platform.com/) 
