@@ -16,14 +16,10 @@ use ApiPlatform\Core\Annotation\ApiResource;
  */
 class ScenarioCard
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+
+    //////////////////////////////////
+    // RELATIONS
+    //////////////////////////////////
 
     /**
      * @var integer
@@ -48,7 +44,7 @@ class ScenarioCard
      *
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
-     * @ORM\JoinColumn(name="_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="first_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $fistChoiceCardId;
 
@@ -56,13 +52,30 @@ class ScenarioCard
      * @var integer
      *
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
+     * @ORM\JoinColumn(name="second_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
      */
-    private $secondChoiceCardid;
+    private $secondChoiceCardId;
+
+    //////////////////////////////////
+    // PROPERTIES
+    //////////////////////////////////
+
+    /**
+     * @var integer
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
 
     /**
      * @var integer
      *
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
+     * @ORM\JoinColumn(name="second_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $finalCardId;
 
@@ -135,17 +148,17 @@ class ScenarioCard
     /**
      * @return int
      */
-    public function getSecondChoiceCardid(): int
+    public function getSecondChoiceCardId(): int
     {
-        return $this->secondChoiceCardid;
+        return $this->secondChoiceCardId;
     }
 
     /**
-     * @param int $secondChoiceCardid
+     * @param int $secondChoiceCardId
      */
-    public function setSecondChoiceCardid(int $secondChoiceCardid): void
+    public function setSecondChoiceCarId(int $secondChoiceCardId): void
     {
-        $this->secondChoiceCardid = $secondChoiceCardid;
+        $this->secondChoiceCardId = $secondChoiceCardId;
     }
 
     /**
