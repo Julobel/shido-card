@@ -3,19 +3,24 @@
  * Created by jules aubel on 23/11/18
  */
 
-namespace App\Entity;
+namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class Card
- * @package App\Entity
+ * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
  */
 class Card
 {
+
+    //////////////////////////////////
+    // PROPERTIES
+    //////////////////////////////////
+
     /**
      * @var int The id of the card.
      *
@@ -59,6 +64,8 @@ class Card
      * @ORM\Column(type="text")
      */
     private $secondChoiceText;
+
+    //////////////////////////////////
 
     /**
      * @return int

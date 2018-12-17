@@ -3,14 +3,14 @@
  * Created by jules aubel on 17/12/18
  */
 
-namespace App\Entity;
+namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class ScenarioCard
- * @package App\Entity
+ * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
  */
@@ -19,14 +19,27 @@ class ScenarioCard
     /**
      * @var integer
      *
+     * @ORM\Id
+     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Scenario")
+     * @ORM\JoinColumn(name="scenario_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $scenarioId;
 
     /**
      * @var integer
      *
-     * @ORM\Column((type="integer")
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
+     * @ORM\JoinColumn(name="card_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $cardId;
 
@@ -34,6 +47,8 @@ class ScenarioCard
      * @var integer
      *
      * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
+     * @ORM\JoinColumn(name="_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $fistChoiceCardId;
 
@@ -50,6 +65,24 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      */
     private $finalCardId;
+
+    //////////////////////////////////
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return int

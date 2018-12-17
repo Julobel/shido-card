@@ -6,19 +6,46 @@
  * Time: 18:11
  */
 
-namespace App\Entity;
+namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class Deck
- * @package App\Entity
+ * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
  */
 class Scenario
 {
+
+    //////////////////////////////////
+    // RELATIONS
+    //////////////////////////////////
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Deck")
+     * @ORM\JoinColumn(name="deck_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $deckId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
+     * @ORM\JoinColumn(name="init_card_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $initCardId;
+
+    //////////////////////////////////
+    // PROPERTIES
+    //////////////////////////////////
+
     /**
      * @var int The id of the Deck.
      *
@@ -35,19 +62,7 @@ class Scenario
      */
     private $label;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $deckId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $initCardId;
+    //////////////////////////////////
 
     /**
      * @return int
