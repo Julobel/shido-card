@@ -1,5 +1,4 @@
 # Makefile
-# Utilisation: make + cmd. Ex: make db-init
 
 # MAJ du cache
 clear-cache:

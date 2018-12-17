@@ -6,7 +6,7 @@
  * Time: 15:58
  */
 
-namespace App\Entity;
+namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
@@ -14,13 +14,17 @@ use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class Deck
- * @package App\Entity
+ * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
  */
-
 class Deck
 {
+
+    //////////////////////////////////
+    // PROPERTIES
+    //////////////////////////////////
+
     /**
      * @var int The id of the Deck.
      *
@@ -43,6 +47,8 @@ class Deck
      * @ORM\Column(type="string")
      */
     private $imageContent;
+
+    //////////////////////////////////
 
     /**
      * @return int

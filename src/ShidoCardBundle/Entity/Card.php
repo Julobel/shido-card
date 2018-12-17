@@ -3,19 +3,24 @@
  * Created by jules aubel on 23/11/18
  */
 
-namespace App\Entity;
+namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Class Card
- * @package App\Entity
+ * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
  */
 class Card
 {
+
+    //////////////////////////////////
+    // PROPERTIES
+    //////////////////////////////////
+
     /**
      * @var int The id of the card.
      *
@@ -45,6 +50,22 @@ class Card
      * @ORM\Column(type="string")
      */
     private $imageContent;
+
+    /**
+     * @var string The text of the first choice
+     *
+     * @ORM\Column(type="text")
+     */
+    private $firstChoiceText;
+
+    /**
+     * @var string The text of the first choice
+     *
+     * @ORM\Column(type="text")
+     */
+    private $secondChoiceText;
+
+    //////////////////////////////////
 
     /**
      * @return int
@@ -108,5 +129,37 @@ class Card
     public function setImageContent(string $imageContent): void
     {
         $this->imageContent = $imageContent;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstChoiceText(): string
+    {
+        return $this->firstChoiceText;
+    }
+
+    /**
+     * @param string $firstChoiceText
+     */
+    public function setFirstChoiceText(string $firstChoiceText): void
+    {
+        $this->firstChoiceText = $firstChoiceText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSecondChoiceText(): string
+    {
+        return $this->secondChoiceText;
+    }
+
+    /**
+     * @param string $secondChoiceText
+     */
+    public function setSecondChoiceText(string $secondChoiceText): void
+    {
+        $this->secondChoiceText = $secondChoiceText;
     }
 }
