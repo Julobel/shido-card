@@ -11,4 +11,13 @@
 /.web-server-pid
 ### config dev
 /config/packages/doctrine.yaml
-/.env
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+.env
+composer.lock
+package-lock.json
