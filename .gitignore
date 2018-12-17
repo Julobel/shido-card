@@ -12,3 +12,6 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 .env
+
+### config dev
+/config/packages/doctrine.yaml
