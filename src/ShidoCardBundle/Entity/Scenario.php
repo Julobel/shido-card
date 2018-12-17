@@ -62,6 +62,20 @@ class Scenario
      */
     private $label;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    private $backgroungImg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
+    private $startButtonText;
+
     //////////////////////////////////
 
     /**
@@ -126,5 +140,37 @@ class Scenario
     public function setInitCardId(int $initCardId): void
     {
         $this->initCardId = $initCardId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBackgroungImg(): string
+    {
+        return $this->backgroungImg;
+    }
+
+    /**
+     * @param string $backgroungImg
+     */
+    public function setBackgroungImg(string $backgroungImg): void
+    {
+        $this->backgroungImg = $backgroungImg;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStartButtonText(): string
+    {
+        return $this->startButtonText;
+    }
+
+    /**
+     * @param string $startButtonText
+     */
+    public function setStartButtonText(string $startButtonText): void
+    {
+        $this->startButtonText = $startButtonText;
     }
 }
