@@ -22,6 +22,36 @@ use ApiPlatform\Core\Annotation\ApiResource;
 class Scenario
 {
     /**
+     * @var int The id of the Deck.
+     *
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @var string The label of the card
+     *
+     * @ORM\Column(type="string")
+     */
+    private $label;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $deckId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    private $initCardId;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -56,39 +86,32 @@ class Scenario
     /**
      * @return int
      */
-    public function getIdDeck(): int
+    public function getDeckId(): int
     {
-        return $this->id_deck;
+        return $this->deckId;
     }
 
     /**
-     * @param int $id_deck
+     * @param int $deckId
      */
-    public function setIdDeck(int $id_deck): void
+    public function setDeckId(int $deckId): void
     {
-        $this->id_deck = $id_deck;
+        $this->deckId = $deckId;
     }
-    /**
-     * @var int The id of the Deck.
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
 
     /**
-     * @var string The label of the card
-     *
-     * @ORM\Column(type="string")
+     * @return int
      */
-    private $label;
-
+    public function getInitCardId(): int
+    {
+        return $this->initCardId;
+    }
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(type="integer")
+     * @param int $initCardId
      */
-    private $id_deck;
+    public function setInitCardId(int $initCardId): void
+    {
+        $this->initCardId = $initCardId;
+    }
 }
