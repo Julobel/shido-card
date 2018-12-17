@@ -22,6 +22,12 @@ Ce rendre dans le fichier ***.env*** et modifier la variable ***DATABASE_URL*** 
 
 `php bin/console doctrine:schema:create`
 
+## Fixtures
+
+Chargement des fixtures
+
+`php bin/console doctrine:fixtures:load`
+
 ## Serveur
 
 **Lancement du serveur de dev:**
