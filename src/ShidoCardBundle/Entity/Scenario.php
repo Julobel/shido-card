@@ -76,6 +76,13 @@ class Scenario
      */
     private $startButtonText;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     //////////////////////////////////
 
     /**
@@ -172,5 +179,21 @@ class Scenario
     public function setStartButtonText(string $startButtonText): void
     {
         $this->startButtonText = $startButtonText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
     }
 }
