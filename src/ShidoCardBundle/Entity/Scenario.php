@@ -67,7 +67,7 @@ class Scenario
      *
      * @ORM\Column(type="string")
      */
-    private $backgroungImg;
+    private $backgroundImg;
 
     /**
      * @var string
@@ -145,17 +145,17 @@ class Scenario
     /**
      * @return string
      */
-    public function getBackgroungImg(): string
+    public function getBackgroundImg(): string
     {
-        return $this->backgroungImg;
+        return $this->backgroundImg;
     }
 
     /**
-     * @param string $backgroungImg
+     * @param string $backgroundImg
      */
-    public function setBackgroungImg(string $backgroungImg): void
+    public function setBackgroundImg(string $backgroundImg): void
     {
-        $this->backgroungImg = $backgroungImg;
+        $this->backgroundImg = $backgroundImg;
     }
 
     /**
