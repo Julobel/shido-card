@@ -10,6 +10,7 @@
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.1.*",
         "symfony/templating": "4.1.*",
+        "symfony/translation": "4.2.*",
         "symfony/yaml": "4.1.*"
     },
     "require-dev": {
@@ -60,7 +61,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.1.*"
+            "require": "4.2.*"
         }
     }
 }
