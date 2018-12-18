@@ -7,7 +7,6 @@ use App\ShidoCardBundle\Entity\Deck;
 use App\ShidoCardBundle\Entity\Scenario;
 use App\ShidoCardBundle\Entity\ScenarioCard;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 class ShidoCardFixtures extends Fixture
@@ -36,6 +35,8 @@ class ShidoCardFixtures extends Fixture
             $scenario->setInitCardId($i);
             $scenario->setBackgroundImg('assets/img/card/' . $i);
             $scenario->setStartButtonText('Start Button ' . $i);
+            $scenario->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ');
             $manager->persist($scenario);
 
             $scenarioCard = new ScenarioCard();
