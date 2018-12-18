@@ -12,7 +12,32 @@ use ApiPlatform\Core\Annotation\ApiResource;
  * Class ScenarioCard
  * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
- * @ApiResource
+ * @ApiResource(itemOperations={
+ *     "get",
+ *     "group_card_info_card_scenario_info"={
+ *         "swagger_context" = {
+ *           "summary" = "Retrieve a card object with ScenarioCard info",
+*            "parameters" = {
+*              {
+*                 "name" = "scenario_id",
+*                 "in" = "path",
+*                 "required" = "true",
+*                 "type" = "string"
+*              },
+*              {
+*                 "name" = "card_id",
+*                 "in" = "path",
+*                 "required" = "true",
+*                 "type" = "string"
+*              }
+*           }
+*          },
+
+ *         "method"="GET",
+ *         "path"="/scenario/{scenario_id}/card/{card_id}",
+ *         "controller"=RetrieveScenarioCard::class,
+ *     }
+ * })
  */
 class ScenarioCard
 {
