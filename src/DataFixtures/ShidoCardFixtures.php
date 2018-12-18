@@ -34,6 +34,8 @@ class ShidoCardFixtures extends Fixture
             $scenario->setLabel('Scenario Label ' . $i);
             $scenario->setDeckId($i);
             $scenario->setInitCardId($i);
+            $scenario->setBackgroundImg('assets/img/card/' . $i);
+            $scenario->setStartButtonText('Start Button ' . $i);
             $manager->persist($scenario);
 
             $scenarioCard = new ScenarioCard();
