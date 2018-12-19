@@ -58,6 +58,7 @@ class Card
      * @var string The text of the first choice
      *
      * @ORM\Column(type="text")
+     * @Groups({"card"})
      */
     private $firstChoiceText;
 
@@ -65,6 +66,7 @@ class Card
      * @var string The text of the first choice
      *
      * @ORM\Column(type="text")
+     * @Groups({"card"})
      */
     private $secondChoiceText;
 
