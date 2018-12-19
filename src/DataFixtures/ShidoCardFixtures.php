@@ -10,6 +10,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Debug\Debug;
 
 
 class ShidoCardFixtures extends Fixture
@@ -19,23 +20,21 @@ class ShidoCardFixtures extends Fixture
 
 
         $image ="https://source.unsplash.com/1600x400";
-        for ($i = 0; $i < 10; $i++) {
-            $deck = new Deck();
-            $deck->setLabel('Deck Label ' . $i);
-            $deck->setImageContent($image);
-            $manager->persist($deck);
-
-
+        $cards = array();
+        $scenarios = array();
+        for ($i = 1; $i < 11; $i++) {
 
             $card = new Card();
             $card->setLabel('Card Label ' . $i);
             $card->setImageContent($image);
-            $card->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. '
+            $card->setTextContent('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. '
             );
             $card->setFirstChoiceText('Choix 1');
             $card->setSecondChoiceText('Choix 2');
             $manager->persist($card);
+
+            $cards[] = $card;
 
             $scenario = new Scenario();
             $scenario->setLabel('Scenario Label ' . $i);
@@ -43,21 +42,30 @@ class ShidoCardFixtures extends Fixture
             $scenario->setInitCardId($i);
             $scenario->setBackgroundImg($image);
             $scenario->setStartButtonText('Start Button ' . $i);
-            $scenario->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ');
+            $scenario->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ');
             $manager->persist($scenario);
+            $scenarios[] = $scenario;
+            $deck = new Deck();
+            $deck->setLabel('Deck Label ' . $i);
+            $deck->setImageContent($image);
+            $manager->persist($deck);
 
-            for ($l=0; $l < 10; $l++) { 
+
+        }
+
+        for ($i = 1; $i < 11; $i++) {
+            for ($l=1; $l < 11; $l++) { 
                 $scenarioCard = new ScenarioCard();
                 $scenarioCard->setScenarioId($i);
                 $scenarioCard->setCardId($l);
-                $scenarioCard->setFinalCardId($i == $l ? 1 : 0);
-                $scenarioCard->setFistChoiceCardId($l + 1 > 10 ? 0 : $l + 1);
-                $scenarioCard->setSecondChoiceCarId(10 - $l < 0 ? 10 : 10 - $l);
+                $scenarioCard->setCard($cards[$l - 1]);
+                $scenarioCard->setScenario($scenarios[$i - 1]);
+                $scenarioCard->setFinalCardId($i == $l ? 1 : 1);
+                $scenarioCard->setFistChoiceCardId($l + 1 > 10 ? 1 : $l + 1);
+                $scenarioCard->setSecondChoiceCarId(10 - $l < 1 ? 10 : 10 - $l);
                 $manager->persist($scenarioCard);
             }
-
-
         }
 
         $manager->flush();
