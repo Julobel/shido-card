@@ -5,6 +5,8 @@
 
 namespace App\ShidoCardBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -14,33 +16,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource(
- * itemOperations={
- *     "get",
- *     "group_card_info_card_scenario_info"={
- *         "swagger_context" = {
- *           "summary" = "Retrieve a card object with ScenarioCard info",
- *           "parameters" = {
- *             {
- *                "name" = "scenario_id",
- *                "in" = "path",
- *                "required" = "true",
- *                "type" = "string"
- *             },
- *             {
- *                "name" = "card_id",
- *                "in" = "path",
- *                "required" = "true",
- *                "type" = "string"
- *             }
- *          }
- *         },
- *        "method"="GET",
- *         "path"="/scenario/{scenario_id}/card/{card_id}",
- *         "controller"=RetrieveScenarioCard::class,
- *     }
- * },
  *      normalizationContext={"groups"={"card"}}
  * )
+ * @ApiFilter(SearchFilter::class, properties={"scenario": "exact", "card": "exact"})
  */
 class ScenarioCard
 {
