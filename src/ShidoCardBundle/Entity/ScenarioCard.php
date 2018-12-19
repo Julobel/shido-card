@@ -5,14 +5,20 @@
 
 namespace App\ShidoCardBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class ScenarioCard
  * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
- * @ApiResource
+ * @ApiResource(
+ *      normalizationContext={"groups"={"card"}}
+ * )
+ * @ApiFilter(SearchFilter::class, properties={"scenario": "exact", "card": "exact"})
  */
 class ScenarioCard
 {
@@ -27,6 +33,7 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Scenario")
      * @ORM\JoinColumn(name="scenario_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Groups({"card"})
      */
     private $scenarioId;
 
@@ -36,6 +43,7 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
      * @ORM\JoinColumn(name="card_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Groups({"card"})
      */
     private $cardId;
 
@@ -45,6 +53,7 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
      * @ORM\JoinColumn(name="first_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Groups({"card"})
      */
     private $fistChoiceCardId;
 
@@ -54,6 +63,7 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
      * @ORM\JoinColumn(name="second_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Groups({"card"})
      */
     private $secondChoiceCardId;
 
@@ -67,6 +77,7 @@ class ScenarioCard
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"card"})
      */
     private $id;
 
@@ -76,8 +87,23 @@ class ScenarioCard
      * @ORM\Column(type="integer")
      * @ORM\ManyToOne(targetEntity="ShidoCardBundle\Entity\Card")
      * @ORM\JoinColumn(name="second_choice_card_id", referencedColumnName="id", onDelete="CASCADE")
+     * @Groups({"card"})
      */
     private $finalCardId;
+
+
+    /**
+     * @var Card
+     * @ORM\ManyToOne(targetEntity="Card")
+     * @Groups({"card"})
+     */
+    public $card;
+    /**
+     * @var Scenario
+     * @ORM\ManyToOne(targetEntity="Scenario")
+     * @Groups({"card"})
+     */
+    public $scenario;
 
     //////////////////////////////////
 
@@ -117,7 +143,7 @@ class ScenarioCard
      * @return int
      */
     public function getCardId(): int
-    {
+    {   
         return $this->cardId;
     }
 
@@ -175,5 +201,21 @@ class ScenarioCard
     public function setFinalCardId(int $finalCardId): void
     {
         $this->finalCardId = $finalCardId;
+    }
+    
+
+    /**
+     * @param Card $card
+     */
+    public function setCard(Card $card): void
+    {
+        $this->card = $card;
+    }
+    /**
+     * @param Scenario $scenario
+     */
+    public function setScenario(Scenario $scenario): void
+    {
+        $this->scenario = $scenario;
     }
 }

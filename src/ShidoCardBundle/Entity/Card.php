@@ -7,6 +7,7 @@ namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Class Card
@@ -34,6 +35,7 @@ class Card
      * @var string The label of the card
      *
      * @ORM\Column(type="string")
+     * @Groups({"card"})
      */
     private $label;
 
@@ -41,6 +43,7 @@ class Card
      * @var string The text content of the card
      *
      * @ORM\Column(type="text")
+     * @Groups({"card"})
      */
     private $textContent;
 

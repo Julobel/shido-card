@@ -10,9 +10,11 @@ namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
- * Class Deck
+ * Class Scenario
  * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
@@ -24,6 +26,8 @@ class Scenario
     // RELATIONS
     //////////////////////////////////
 
+
+    
     /**
      * @var integer
      *
@@ -47,7 +51,7 @@ class Scenario
     //////////////////////////////////
 
     /**
-     * @var int The id of the Deck.
+     * @var int The id of the Scenario.
      *
      * @ORM\Id
      * @ORM\GeneratedValue
