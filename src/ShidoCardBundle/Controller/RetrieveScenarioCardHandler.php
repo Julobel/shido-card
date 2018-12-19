@@ -5,6 +5,7 @@ use App\ShidoCardBundle\Entity\ScenarioCard;
 
 class RetrieveScenarioCardHandler{
     public function handle(ScenarioCard $scenarioCard){
+    
         return $scenarioCard;
     }
 }
