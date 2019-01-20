@@ -5,9 +5,10 @@
 
 namespace App\ShidoCardBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -15,6 +16,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @package App\ShidoCardBundle\Entity
  * @ORM\Entity
  * @ApiResource
+ * @ApiFilter(SearchFilter::class, properties={"deck": "exact"})
  */
 class Card
 {
