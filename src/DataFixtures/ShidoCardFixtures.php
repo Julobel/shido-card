@@ -8,10 +8,6 @@ use App\ShidoCardBundle\Entity\Scenario;
 use App\ShidoCardBundle\Entity\ScenarioCard;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\Response;
-
-use Symfony\Component\Debug\Debug;
-
 
 class ShidoCardFixtures extends Fixture
 {
@@ -24,6 +20,7 @@ class ShidoCardFixtures extends Fixture
         $scenarios = array();
         for ($i = 1; $i < 11; $i++) {
 
+            // CARDS
             $card = new Card();
             $card->setLabel('Card Label ' . $i);
             $card->setImageContent($image);
@@ -32,10 +29,12 @@ class ShidoCardFixtures extends Fixture
             );
             $card->setFirstChoiceText('Choix 1');
             $card->setSecondChoiceText('Choix 2');
+            $card->setDeck(1);
             $manager->persist($card);
 
             $cards[] = $card;
 
+            // SCENARIOS
             $scenario = new Scenario();
             $scenario->setLabel('Scenario Label ' . $i);
             $scenario->setDeckId($i);
@@ -46,6 +45,8 @@ class ShidoCardFixtures extends Fixture
                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. ');
             $manager->persist($scenario);
             $scenarios[] = $scenario;
+
+            // DECKS
             $deck = new Deck();
             $deck->setLabel('Deck Label ' . $i);
             $deck->setImageContent($image);

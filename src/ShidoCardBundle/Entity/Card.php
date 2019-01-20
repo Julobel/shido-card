@@ -7,6 +7,7 @@ namespace App\ShidoCardBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\ORM\Mapping\JoinColumn;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
@@ -17,6 +18,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 class Card
 {
+
+    //////////////////////////////////
+    // RELATIONS
+    //////////////////////////////////
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Deck", inversedBy="cards")
+     * @ORM\JoinColumn(name="deck_id", referencedColumnName="id")
+     * @ORM\Column(type="integer")
+     */
+    public $deck;
+
 
     //////////////////////////////////
     // PROPERTIES
@@ -164,5 +177,23 @@ class Card
     public function setSecondChoiceText(string $secondChoiceText): void
     {
         $this->secondChoiceText = $secondChoiceText;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeck()
+    {
+        return $this->deck;
+    }
+
+    /**
+     * @param mixed $deck
+     * @return Card
+     */
+    public function setDeck($deck): Card
+    {
+        $this->deck = $deck;
+        return $this;
     }
 }

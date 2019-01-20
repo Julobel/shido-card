@@ -8,6 +8,7 @@
 
 namespace App\ShidoCardBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
@@ -20,6 +21,16 @@ use ApiPlatform\Core\Annotation\ApiResource;
  */
 class Deck
 {
+
+    //////////////////////////////////
+    // RELATIONS
+    //////////////////////////////////
+
+    /**
+     * @ORM\OneToMany(targetEntity="Card", mappedBy="deck")
+     */
+    public $cards;
+
 
     //////////////////////////////////
     // PROPERTIES
@@ -49,6 +60,11 @@ class Deck
     private $imageContent;
 
     //////////////////////////////////
+
+    public function __construct()
+    {
+        $this->cards = new ArrayCollection();
+    }
 
     /**
      * @return int
@@ -98,5 +114,21 @@ class Deck
         $this->imageContent = $imageContent;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCards()
+    {
+        return $this->cards;
+    }
 
+    /**
+     * @param mixed $cards
+     * @return Deck
+     */
+    public function setCards($cards): Deck
+    {
+        $this->cards = $cards;
+        return $this;
+    }
 }
