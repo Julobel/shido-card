@@ -62,7 +62,7 @@ class ShidoCardFixtures extends Fixture
                 $scenarioCard->setCardId($l);
                 $scenarioCard->setCard($cards[$l - 1]);
                 $scenarioCard->setScenario($scenarios[$i - 1]);
-                $scenarioCard->setFinalCardId($i == $l ? 1 : 1);
+                $scenarioCard->setFinalCardId($i == $l ? 1 : 0);
                 $scenarioCard->setFistChoiceCardId($l + 1 > 10 ? 1 : $l + 1);
                 $scenarioCard->setSecondChoiceCarId(10 - $l < 1 ? 10 : 10 - $l);
                 $manager->persist($scenarioCard);
